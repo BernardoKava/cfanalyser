@@ -1,0 +1,77 @@
+<%= form_with(model: outflow, local: true) do |form| %>
+  <% if outflow.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(outflow.errors.count, "error") %> prohibited this outflow from being saved:</h2>
+
+      <ul>
+      <% outflow.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :amount %>
+    <%= form.text_field :amount %>
+  </div>
+
+  <div class="field">
+    <%= form.label :details %>
+    <%= form.text_area :details %>
+  </div>
+
+  <div class="field">
+    <%= form.label :user_id %>
+    <%= form.number_field :user_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :cashflow_id %>
+    <%= form.number_field :cashflow_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :month %>
+    <%= form.text_field :month %>
+  </div>
+
+  <div class="field">
+    <%= form.label :year %>
+    <%= form.text_field :year %>
+  </div>
+
+  <div class="field">
+    <%= form.label :person_id %>
+    <%= form.number_field :person_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :outflowtype_id %>
+    <%= form.number_field :outflowtype_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :date_posted %>
+    <%= form.date_select :date_posted %>
+  </div>
+
+  <div class="field">
+    <%= form.label :rationale %>
+    <%= form.text_area :rationale %>
+  </div>
+
+  <div class="field">
+    <%= form.label :bankaccount_id %>
+    <%= form.number_field :bankaccount_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :follow_up %>
+    <%= form.check_box :follow_up %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

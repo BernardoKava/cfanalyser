@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @inflowtype.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @inflowtype.description %>
+</p>
+
+<p>
+  <strong>System item:</strong>
+  <%= @inflowtype.system_item %>
+</p>
+
+<p>
+  <strong>Active:</strong>
+  <%= @inflowtype.active %>
+</p>
+
+<%= link_to 'Edit', edit_inflowtype_path(@inflowtype) %> |
+<%= link_to 'Back', inflowtypes_path %>

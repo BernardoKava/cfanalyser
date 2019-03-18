@@ -1,0 +1,2 @@
+class Outflowtype < ApplicationRecord
+end

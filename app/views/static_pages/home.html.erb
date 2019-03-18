@@ -1,0 +1,31 @@
+<% provide(:title, "Home") %>
+
+
+
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <th>Module</th>
+    <th>Description</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td><%= link_to "inflows", inflows_path %></td>
+    <td>The list of all the income records as registered on the HomeIntel Database</td>
+  </tr>
+  </tbody>
+</table>
+
+
+<h1>StaticPages#home</h1>
+<p>Find me in app/views/static_pages/home.html.erb</p>
+
+
+<%= link_to "inflows", inflows_path %>
+<%= link_to "Cashflows", cashflows_path %>
+<%= link_to "Bankaccounts", bankaccounts_path %>
+<%= link_to "People", people_path %>
+<%= link_to "Outflows", outflows_path %>
+<%= link_to "Outflowtypes", outflowtypes_path %>
+<%= link_to "inflowtypes", inflowtypes_path %>

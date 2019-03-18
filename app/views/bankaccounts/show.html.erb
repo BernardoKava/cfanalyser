@@ -1,0 +1,49 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Financialinstitution:</strong>
+  <%= @bankaccount.financialinstitution_id %>
+</p>
+
+<p>
+  <strong>Account number:</strong>
+  <%= @bankaccount.account_number %>
+</p>
+
+<p>
+  <strong>Sort code:</strong>
+  <%= @bankaccount.sort_code %>
+</p>
+
+<p>
+  <strong>Iban:</strong>
+  <%= @bankaccount.iban %>
+</p>
+
+<p>
+  <strong>Bic:</strong>
+  <%= @bankaccount.bic %>
+</p>
+
+<p>
+  <strong>Person:</strong>
+  <%= @bankaccount.person_id %>
+</p>
+
+<p>
+  <strong>Account code:</strong>
+  <%= @bankaccount.account_code %>
+</p>
+
+<p>
+  <strong>Account name:</strong>
+  <%= @bankaccount.account_name %>
+</p>
+
+<p>
+  <strong>Active:</strong>
+  <%= @bankaccount.active %>
+</p>
+
+<%= link_to 'Edit', edit_bankaccount_path(@bankaccount) %> |
+<%= link_to 'Back', bankaccounts_path %>

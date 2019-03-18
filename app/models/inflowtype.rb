@@ -1,0 +1,2 @@
+class Inflowtype < ApplicationRecord
+end

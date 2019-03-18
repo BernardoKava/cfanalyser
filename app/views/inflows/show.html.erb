@@ -1,0 +1,64 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Amount:</strong>
+  <%= @inflow.amount %>
+</p>
+
+<p>
+  <strong>Details:</strong>
+  <%= @inflow.details %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @inflow.user_id %>
+</p>
+
+<p>
+  <strong>Cashflow:</strong>
+  <%= @inflow.cashflow_id %>
+</p>
+
+<p>
+  <strong>Year:</strong>
+  <%= @inflow.year %>
+</p>
+
+<p>
+  <strong>Month:</strong>
+  <%= @inflow.month %>
+</p>
+
+<p>
+  <strong>Person:</strong>
+  <%= @inflow.person_id %>
+</p>
+
+<p>
+  <strong>Inflowtype:</strong>
+  <%= @inflow.inflowtype_id %>
+</p>
+
+<p>
+  <strong>Date posted:</strong>
+  <%= @inflow.date_posted %>
+</p>
+
+<p>
+  <strong>Rationale:</strong>
+  <%= @inflow.rationale %>
+</p>
+
+<p>
+  <strong>Bankaccount:</strong>
+  <%= @inflow.bankaccount_id %>
+</p>
+
+<p>
+  <strong>Follow up:</strong>
+  <%= @inflow.follow_up %>
+</p>
+
+<%= link_to 'Edit', edit_inflow_path(@inflow) %> |
+<%= link_to 'Back', inflows_path %>

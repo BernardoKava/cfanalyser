@@ -1,6 +1,14 @@
-<h1>Editing Cashflow</h1>
+<% provide(:title, "Edit") %>
+<div class="breadcrumb"style="background-color: khaki;color: #730E15">
+  <h3>Editing: <%= @cashflow.name %> - Ref#: <%= @cashflow.id %></h3>
+</div>
+
 
 <%= render 'form', cashflow: @cashflow %>
 
-<%= link_to 'Show', @cashflow %> |
-<%= link_to 'Back', cashflows_path %>
+<br>
+<div class="breadcrumb" style="background-color: khaki">
+  <%= link_to 'View', @cashflow %> |
+  <%= link_to 'Back', cashflows_path %>
+</div>
+

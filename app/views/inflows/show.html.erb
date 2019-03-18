@@ -1,64 +1,66 @@
+<% provide(:title, "CF Inflow") %>
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Amount:</strong>
-  <%= @inflow.amount %>
-</p>
+<div class="breadcrumb" style="background-color: khaki;color: #730E15">
+  <h2>Transaction: <%= @id %></h2>
+</div>
 
-<p>
-  <strong>Details:</strong>
-  <%= @inflow.details %>
-</p>
 
-<p>
-  <strong>User:</strong>
-  <%= @inflow.user_id %>
-</p>
+<div class="jumbotron" style="background-color: aliceblue;color: navy">
+  <table class="table table-striped">
+    <tbody>
+    <tr>
+      <td>Year:</td>
+      <td>  <%= @inflow.year %> </td>
+    </tr>
+    <tr>
+      <td>Month:</td>
+      <td>  <%= @inflow.month %></td>
+    </tr>
+    <tr>
+      <td>Date:</td>
+      <td><%= @inflow.date_posted.strftime("%d %b. %Y") %></td>
+    </tr>
+    <tr>
+      <td>Details:</td>
+      <td>  <%= @inflow.details %></td>
+    </tr>
+    <tr>
+      <td>Amount:</td>
+      <td><%= @inflow.amount %></td>
+    </tr>
+    <tr>
+      <td>Cashflow:</td>
+      <td>  <%= @inflow.cashflow.name %> </td>
+    </tr>
+    <tr>
+      <td>Person:</td>
+      <td> <%= @inflow.person.fullname %></td>
+    </tr>
+    <tr>
+      <td>Inflowtype:</td>
+      <td><%= @inflow.inflowtype.name %></td>
+    </tr>
+    <tr>
+      <td>Rationale:</td>
+      <td><%= @inflow.rationale %></td>
+    </tr>
+    <tr>
+      <td>Bank Account:</td>
+      <td><%= @inflow.bankaccount.account_code %> </td>
+    </tr>
+    <tr>
+      <td>Follow up:</td>
+      <td><%= @inflow.follow_up.humanize %> </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
 
-<p>
-  <strong>Cashflow:</strong>
-  <%= @inflow.cashflow_id %>
-</p>
 
-<p>
-  <strong>Year:</strong>
-  <%= @inflow.year %>
-</p>
 
-<p>
-  <strong>Month:</strong>
-  <%= @inflow.month %>
-</p>
+<div class="breadcrumb"style="background-color: khaki">
+  <%= link_to 'Edit', edit_inflow_path(@inflow) %> |
+  <%= link_to 'Back', inflows_path %>
+</div>
 
-<p>
-  <strong>Person:</strong>
-  <%= @inflow.person_id %>
-</p>
-
-<p>
-  <strong>Inflowtype:</strong>
-  <%= @inflow.inflowtype_id %>
-</p>
-
-<p>
-  <strong>Date posted:</strong>
-  <%= @inflow.date_posted %>
-</p>
-
-<p>
-  <strong>Rationale:</strong>
-  <%= @inflow.rationale %>
-</p>
-
-<p>
-  <strong>Bankaccount:</strong>
-  <%= @inflow.bankaccount_id %>
-</p>
-
-<p>
-  <strong>Follow up:</strong>
-  <%= @inflow.follow_up %>
-</p>
-
-<%= link_to 'Edit', edit_inflow_path(@inflow) %> |
-<%= link_to 'Back', inflows_path %>

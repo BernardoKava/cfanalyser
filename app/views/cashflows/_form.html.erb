@@ -1,47 +1,32 @@
-<%= form_with(model: cashflow, local: true) do |form| %>
-  <% if cashflow.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(cashflow.errors.count, "error") %> prohibited this cashflow from being saved:</h2>
 
-      <ul>
-      <% cashflow.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+
+<%= simple_form_for(@cashflow) do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+
+  <div class="jumbotron"style="background-color: lightgoldenrodyellow">
+
+
+    <div class="row">
+      <div class="col-sm-4">
+        <%= f.input :month %>
+        <%= f.input :year %>
+        <%= f.input :accounting_date %>
+      </div>
+      <div class="col-sm-4">
+        <%= f.input :name %>
+        <%= f.input :balance %>
+      </div>
+
     </div>
-  <% end %>
 
-  <div class="field">
-    <%= form.label :month %>
-    <%= form.text_field :month %>
   </div>
 
-  <div class="field">
-    <%= form.label :year %>
-    <%= form.text_field :year %>
-  </div>
+  <br>
 
-  <div class="field">
-    <%= form.label :accounting_date %>
-    <%= form.date_select :accounting_date %>
-  </div>
 
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
-  </div>
-
-  <div class="field">
-    <%= form.label :user_id %>
-    <%= form.number_field :user_id %>
-  </div>
-
-  <div class="field">
-    <%= form.label :balance %>
-    <%= form.text_field :balance %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
+  <div class="form-actions">
+    <%= f.button :submit,"Save" %>
   </div>
 <% end %>

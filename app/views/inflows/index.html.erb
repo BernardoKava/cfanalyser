@@ -1,49 +1,56 @@
-<p id="notice"><%= notice %></p>
+<% provide(:title, "CF Inflows") %>
 
-<h1>Inflows</h1>
+<div>
+  <p id="notice"><%= notice %></p>
+</div>
 
-<table>
-  <thead>
+<div class="breadcrumb" style="background-color: #2a4b51;color: white">
+  <h2>CF In-flows</h2>
+</div>
+
+<div class="jumbotron" style="background-color: lightgoldenrodyellow;color: navy">
+  <table class=" table table-hover" >
+    <thead>
     <tr>
-      <th>Amount</th>
-      <th>Details</th>
-      <th>User</th>
-      <th>Cashflow</th>
+      <th>Ref</th>
       <th>Year</th>
       <th>Month</th>
-      <th>Person</th>
-      <th>Inflowtype</th>
-      <th>Date posted</th>
+      <th>Date</th>
+      <th>Details</th>
+      <th>Amount</th>
+      <th>Inflow type</th>
+      <th>Cash-flow</th>
+      <th>Owner</th>
       <th>Rationale</th>
-      <th>Bankaccount</th>
+      <th>Bank Acc.</th>
       <th>Follow up</th>
       <th colspan="3"></th>
     </tr>
-  </thead>
+    </thead>
 
-  <tbody>
+    <tbody>
     <% @inflows.each do |inflow| %>
       <tr>
-        <td><%= inflow.amount %></td>
-        <td><%= inflow.details %></td>
-        <td><%= inflow.user_id %></td>
-        <td><%= inflow.cashflow_id %></td>
+        <td><%= inflow.id %></td>
         <td><%= inflow.year %></td>
         <td><%= inflow.month %></td>
-        <td><%= inflow.person_id %></td>
-        <td><%= inflow.inflowtype_id %></td>
-        <td><%= inflow.date_posted %></td>
+        <td><%= inflow.date_posted.strftime("%d %b. %Y") %></td>
+        <td><%= inflow.details %></td>
+        <td><%= inflow.amount %></td>
+        <td><%= inflow.inflowtype.name %></td>
+        <td><%= inflow.cashflow.name %></td>
+        <td><%= inflow.person.fullname %></td>
         <td><%= inflow.rationale %></td>
-        <td><%= inflow.bankaccount_id %></td>
-        <td><%= inflow.follow_up %></td>
-        <td><%= link_to 'Show', inflow %></td>
-        <td><%= link_to 'Edit', edit_inflow_path(inflow) %></td>
-        <td><%= link_to 'Destroy', inflow, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= inflow.bankaccount.account_code %></td>
+        <td><%= inflow.follow_up.humanize %></td>
+        <td class="alert-warning"><%= link_to '', inflow, class:'fa fa-eye' %></td>
+        <td class="alert-danger"><%= link_to '', edit_inflow_path(inflow), class:'fa fa-edit' %></td>
       </tr>
     <% end %>
-  </tbody>
-</table>
+    </tbody>
+  </table>
+  <%= will_paginate @inflows %>
+  <br>
 
-<br>
+</div>
 
-<%= link_to 'New Inflow', new_inflow_path %>

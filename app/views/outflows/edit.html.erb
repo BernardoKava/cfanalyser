@@ -1,6 +1,14 @@
-<h1>Editing Outflow</h1>
+<% provide(:title, "Edit") %>
+
+<div class="breadcrumb"style="background-color: khaki;color: #730E15">
+  <h3>Editing: <%= @outflow.details %> - Ref#: <%= @outflow.id %></h3>
+</div>
 
 <%= render 'form', outflow: @outflow %>
+<br>
 
-<%= link_to 'Show', @outflow %> |
-<%= link_to 'Back', outflows_path %>
+<div class="breadcrumb" style="background-color: khaki">
+  <%= link_to 'View', @outflow %> |
+  <%= link_to 'Back', outflows_path %>
+</div>
+

@@ -1,34 +1,43 @@
+
+<% provide(:title, "CF") %>
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Month:</strong>
-  <%= @cashflow.month %>
-</p>
+<div class="breadcrumb" style="background-color: khaki;color: #730E15">
+  <h2>Cash-flow: <%= @cashflow.name %> - Ref#: <%= @cashflow.id %></h2>
+</div>
 
-<p>
-  <strong>Year:</strong>
-  <%= @cashflow.year %>
-</p>
 
-<p>
-  <strong>Accounting date:</strong>
-  <%= @cashflow.accounting_date %>
-</p>
+<div class="jumbotron" style="background-color: aliceblue;color: navy">
+  <table class="table table-striped">
+    <tbody>
+    <tr>
+      <td>Year:</td>
+      <td>  <%= @cashflow.year %> </td>
+    </tr>
+    <tr>
+      <td>Month:</td>
+      <td>  <%= @cashflow.month %></td>
+    </tr>
+    <tr>
+      <td>Name:</td>
+      <td>  <%= @cashflow.name %></td>
+    </tr>
+    <tr>
+      <td>Accounting Date:</td>
+      <td><%= @cashflow.accounting_date.strftime("%d %b. %Y") %></td>
+    </tr>
+    <tr>
+      <td>Balance:</td>
+      <td>  <%= @cashflow.balance %></td>
+    </tr>
+    </tbody>
+  </table>
+</div>
 
-<p>
-  <strong>Name:</strong>
-  <%= @cashflow.name %>
-</p>
 
-<p>
-  <strong>User:</strong>
-  <%= @cashflow.user_id %>
-</p>
 
-<p>
-  <strong>Balance:</strong>
-  <%= @cashflow.balance %>
-</p>
+<div class="breadcrumb"style="background-color: khaki">
+  <%= link_to 'Edit', edit_inflow_path(@cashflow) %> |
+  <%= link_to 'Back', cashflows_path %>
+</div>
 
-<%= link_to 'Edit', edit_cashflow_path(@cashflow) %> |
-<%= link_to 'Back', cashflows_path %>

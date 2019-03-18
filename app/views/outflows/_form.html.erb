@@ -1,77 +1,67 @@
-<%= form_with(model: outflow, local: true) do |form| %>
-  <% if outflow.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(outflow.errors.count, "error") %> prohibited this outflow from being saved:</h2>
 
-      <ul>
-      <% outflow.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+<%= simple_form_for(@outflow) do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+
+  <div class="jumbotron"style="background-color: lightgoldenrodyellow">
+
+
+    <div class="row">
+      <div class="col-sm-4">
+        <div class="control-group">
+          <div class ="controls">
+            <%= f.association :outflowtype, collection: Outflowtype.order(:name),label_method: :name,
+                              prompt: "Choose a Type", label:"Outflow_Type" %>
+          </div>
+        </div>
+        <br>
+
+        <div class="control-group">
+          <div class ="controls">
+            <%= f.association :person, collection: Person.order(:fullname),label_method: :fullname,
+                              prompt: "Choose an Owner", label:"Owner" %>
+          </div>
+        </div>
+        <br>
+
+        <div class="control-group">
+          <div class ="controls">
+            <%= f.association :bankaccount, collection: Bankaccount.order(:account_code),label_method: :account_code,
+                              prompt: "Choose an account", label:"Bank Account" %>
+          </div>
+        </div>
+        <br>
+
+        <div class="control-group">
+          <div class ="controls">
+            <%= f.association :cashflow, collection: Cashflow.order(:name),label_method: :name,
+                              prompt: "Choose an Cashflow", label:"Cash-Flow" %>
+          </div>
+        </div>
+        <br>
+
+
+      </div>
+      <div class="col-sm-4">
+        <%= f.input :year,:readonly => true %>
+        <%= f.input :month ,:readonly => true%>
+        <%= f.input :rationale %>
+      </div>
+      <div class="col-sm-4">
+        <%= f.input :date_posted %>
+        <%= f.input :details,:readonly => true %>
+        <%= f.input :amount ,:readonly => true%>
+        <%= f.input :follow_up %>
+      </div>
     </div>
-  <% end %>
 
-  <div class="field">
-    <%= form.label :amount %>
-    <%= form.text_field :amount %>
   </div>
 
-  <div class="field">
-    <%= form.label :details %>
-    <%= form.text_area :details %>
-  </div>
+  <br>
 
-  <div class="field">
-    <%= form.label :user_id %>
-    <%= form.number_field :user_id %>
-  </div>
 
-  <div class="field">
-    <%= form.label :cashflow_id %>
-    <%= form.number_field :cashflow_id %>
-  </div>
-
-  <div class="field">
-    <%= form.label :month %>
-    <%= form.text_field :month %>
-  </div>
-
-  <div class="field">
-    <%= form.label :year %>
-    <%= form.text_field :year %>
-  </div>
-
-  <div class="field">
-    <%= form.label :person_id %>
-    <%= form.number_field :person_id %>
-  </div>
-
-  <div class="field">
-    <%= form.label :outflowtype_id %>
-    <%= form.number_field :outflowtype_id %>
-  </div>
-
-  <div class="field">
-    <%= form.label :date_posted %>
-    <%= form.date_select :date_posted %>
-  </div>
-
-  <div class="field">
-    <%= form.label :rationale %>
-    <%= form.text_area :rationale %>
-  </div>
-
-  <div class="field">
-    <%= form.label :bankaccount_id %>
-    <%= form.number_field :bankaccount_id %>
-  </div>
-
-  <div class="field">
-    <%= form.label :follow_up %>
-    <%= form.check_box :follow_up %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
+  <div class="form-actions">
+    <%= f.button :submit,"Save" %>
   </div>
 <% end %>

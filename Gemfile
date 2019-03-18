@@ -32,8 +32,11 @@ gem 'devise'
 gem 'bootstrap-sass', '3.3.7'
 gem 'gravtastic'
 gem 'humanize_boolean'
+gem 'will_paginate'
+gem 'bootstrap-will_paginate'
+gem 'simple_form'
 
-# Use ActiveStorage variant
+    # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 
 # Use Capistrano for deployment

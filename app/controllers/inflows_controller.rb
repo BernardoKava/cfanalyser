@@ -4,12 +4,13 @@ class InflowsController < ApplicationController
   # GET /inflows
   # GET /inflows.json
   def index
-    @inflows = Inflow.all
+    @inflows = Inflow.all.paginate(page: params[:page], :per_page => 10).order("created_at DESC")
   end
 
   # GET /inflows/1
   # GET /inflows/1.json
   def show
+    @id = @inflow.id
   end
 
   # GET /inflows/new

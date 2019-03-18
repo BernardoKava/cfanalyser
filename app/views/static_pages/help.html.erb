@@ -1,4 +1,14 @@
 <% provide(:title, "Help") %>
 
-<h1>StaticPages#help</h1>
-<p>Find me in app/views/static_pages/help.html.erb</p>
+<div class="jumbotron" style="background-color: #2a4b51">
+  <div class="breadcrumb" style="background-color: khaki">
+    <h2>CF Analyser - Help</h2>
+  </div>
+  <div class="jumbotron">
+    <%=  @help_information %>
+  </div>
+
+  <div class="breadcrumb" style="background-color: khaki; color: #730E15">
+    <%= @help_notice %>
+  </div>
+</div>

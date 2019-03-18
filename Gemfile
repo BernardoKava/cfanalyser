@@ -30,6 +30,8 @@ gem 'jbuilder', '~> 2.5'
 
 gem 'devise'
 gem 'bootstrap-sass', '3.3.7'
+gem 'gravtastic'
+gem 'humanize_boolean'
 
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'

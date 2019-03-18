@@ -7,6 +7,9 @@ To get access, please click on the request access button on the HomeIntel App Ho
 this application. This is a private application with access to private data (Herga Privacy Policy) "
 
     @notice_of_access_request= "Access can only be requested via the HomeIntel Homepage."
+
+    @inflows_desc = "All incomes of the household are captured on this table. "
+    @outflows_desc = "All expenses of the household are captured on this table. "
   end
 
 

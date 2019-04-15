@@ -10,6 +10,11 @@ class CashflowsController < ApplicationController
   # GET /cashflows/1
   # GET /cashflows/1.json
   def show
+    @inflow_fu_count    = Inflow.where(follow_up: true).count
+    @outflow_fu_count   = Outflow.where(follow_up: true).count
+
+
+
   end
 
   # GET /cashflows/new

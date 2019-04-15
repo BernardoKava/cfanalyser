@@ -4,7 +4,10 @@ class InflowsController < ApplicationController
   # GET /inflows
   # GET /inflows.json
   def index
-    @inflows = Inflow.all.paginate(page: params[:page], :per_page => 10).order("created_at DESC")
+    @inflows = Inflow.all.paginate(page: params[:page], :per_page => 10).order("follow_up DESC")
+    @inflow_fu_count    = Inflow.where(follow_up: true).count
+
+
   end
 
   # GET /inflows/1

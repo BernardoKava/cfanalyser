@@ -4,6 +4,18 @@
   <p id="notice"><%= notice %></p>
 </div>
 
+<div>
+  <% if @inflow_fu_count == 0 && @outflow_fu_count == 0 %>
+    <div class="breadcrumb" style="background-color: darkgreen;color: white">
+      <h5>Great - <%= @outflow_fu_count %> expense record(s) to follow-up!</h5>
+    </div>
+  <% else %>
+    <div class="breadcrumb"style="background-color: darkred;color: white">
+      <h5>Warning - <%= @outflow_fu_count %> expense record(s) to follow-up! </h5>
+    </div>
+  <% end %>
+</div>
+
 <div class="breadcrumb" style="background-color: #2a4b51;color: white">
   <h2>CF Out-flows</h2>
 </div>
@@ -42,7 +54,11 @@
         <td><%= outflow.person.fullname %></td>
         <td><%= outflow.rationale %></td>
         <td><%= outflow.bankaccount.account_code %></td>
-        <td><%= outflow.follow_up.humanize %></td>
+        <% if outflow.follow_up == true %>
+          <td class="alert-danger"><%= outflow.follow_up.humanize %></td>
+        <% else %>
+          <td class="alert-success"><%= outflow.follow_up.humanize %></td>
+        <% end %>
         <td class="alert-warning"><%= link_to '', outflow, class:'fa fa-eye' %></td>
         <td class="alert-danger"><%= link_to '', edit_outflow_path(outflow), class:'fa fa-edit' %></td>
       </tr>

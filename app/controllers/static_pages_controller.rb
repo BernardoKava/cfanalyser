@@ -8,8 +8,10 @@ this application. This is a private application with access to private data (Her
 
     @notice_of_access_request= "Access can only be requested via the HomeIntel Homepage."
 
-    @inflows_desc = "All incomes of the household are captured on this table. "
-    @outflows_desc = "All expenses of the household are captured on this table. "
+    @inflows_f_followup = "All incomes of the household are captured on this table. Filtered by follow-up status "
+    @inflows_f_transaid = "All incomes of the household are captured on this table. Filtered by transaction ID "
+    @outflows_f_followup = "All expenses of the household are captured on this table. Filtered by follow-up status "
+    @outflows_f_tansaid = "All expenses of the household are captured on this table. Filtered by transaction ID "
 
 
 

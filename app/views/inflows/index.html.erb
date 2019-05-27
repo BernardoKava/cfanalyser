@@ -18,7 +18,7 @@
 
 
 <div class="breadcrumb" style="background-color: #2a4b51;color: white">
-  <h2>CF In-flows</h2>
+  <h2><%= @page_title %> </h2>
 </div>
 
 <div class="jumbotron" style="background-color: lightgoldenrodyellow;color: navy">
@@ -44,11 +44,11 @@
     <tbody>
     <% @inflows.each do |inflow| %>
       <tr>
-        <td><%= inflow.id %></td>
+        <td><%= link_to  inflow.id, inflow, style:'color:darkred' %></td>
         <td><%= inflow.year %></td>
         <td><%= inflow.month %></td>
         <td><%= inflow.date_posted.strftime("%d %b. %Y") %></td>
-        <td><%= inflow.details %></td>
+        <td><%= link_to inflow.details, inflow, style:'color:darkred' %></td>
         <td><%= inflow.amount %></td>
         <td><%= inflow.inflowtype.name %></td>
         <td><%= inflow.cashflow.name %></td>
@@ -63,6 +63,9 @@
 
         <td class="alert-warning"><%= link_to '', inflow, class:'fa fa-eye' %></td>
         <td class="alert-danger"><%= link_to '', edit_inflow_path(inflow), class:'fa fa-edit' %></td>
+        <% if current_user.admin == true %>
+          <td class="alert-danger"><%= link_to '', inflow, method: :delete, data: { confirm: 'Are you sure?' } , class:'fa fa-remove'%></td>
+        <% end %>
       </tr>
     <% end %>
     </tbody>

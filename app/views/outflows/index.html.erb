@@ -17,7 +17,7 @@
 </div>
 
 <div class="breadcrumb" style="background-color: #2a4b51;color: white">
-  <h2>CF Out-flows</h2>
+  <h2><%= @page_title %></h2>
 </div>
 
 <div class="jumbotron" style="background-color: lightgoldenrodyellow;color: navy">
@@ -59,8 +59,11 @@
         <% else %>
           <td class="alert-success"><%= outflow.follow_up.humanize %></td>
         <% end %>
-        <td class="alert-warning"><%= link_to '', outflow, class:'fa fa-eye' %></td>
-        <td class="alert-danger"><%= link_to '', edit_outflow_path(outflow), class:'fa fa-edit' %></td>
+          <td class="alert-warning"><%= link_to '', outflow, class:'fa fa-eye' %></td>
+          <td class="alert-danger"><%= link_to '', edit_outflow_path(outflow), class:'fa fa-edit' %></td>
+        <% if current_user.admin == true %>
+          <td class="alert-danger"><%= link_to '', outflow, method: :delete, data: { confirm: 'Are you sure?' } , class:'fa fa-remove'%></td>
+        <% end %>
       </tr>
     <% end %>
     </tbody>

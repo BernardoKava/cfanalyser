@@ -2,7 +2,7 @@
 <p id="notice"><%= notice %></p>
 
 <div class="breadcrumb" style="background-color: khaki;color: #730E15">
-  <h2>Transaction: <%= @outflow.id %></h2>
+  <h2> Ref#: <%= @outflow.id %> | <%= @outflow.details %> | €<%= @outflow.amount %> | <%= @outflow.cashflow.name %> </h2>
 </div>
 
 
@@ -38,7 +38,8 @@
       <td> <%= @outflow.person.fullname %></td>
     </tr>
     <tr>
-      <td>Outflowtype:</td>
+      <td data-toggle= "tooltip"  data-placement="top"
+      title="Expense Type:<%= @outflow.outflowtype.description %> | Debited from:<%= @outflow.bankaccount.account_code %>">Outflowtype:</td>
       <td><%= @outflow.outflowtype.name %></td>
     </tr>
     <tr>
@@ -46,7 +47,8 @@
       <td><%= @outflow.rationale %></td>
     </tr>
     <tr>
-      <td>Bank Account:</td>
+      <td data-toggle= "tooltip"  data-placement="top"
+      title="Bank Account:<%= @outflow.bankaccount.account_name %>">Bank Account:</td>
       <td><%= @outflow.bankaccount.account_code %> </td>
     </tr>
     <tr>

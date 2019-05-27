@@ -1,7 +1,7 @@
 <% provide(:title, "Edit") %>
 
 <div class="breadcrumb"style="background-color: khaki;color: #730E15">
-  <h3>Editing: <%= @outflow.details %> - Ref#: <%= @outflow.id %></h3>
+  <h3>Editing: TN: <%= @outflow.id %> | <%= @outflow.details %> | €<%= @outflow.amount %> | <%= @outflow.cashflow.name %>  </h3>
 </div>
 
 <%= render 'form', outflow: @outflow %>

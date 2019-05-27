@@ -4,13 +4,19 @@ class InflowsController < ApplicationController
   # GET /inflows
   # GET /inflows.json
   def index
+    @page_title = "CF Inflows | Filter = Follow-up Flag"
     @inflows = Inflow.all.paginate(page: params[:page], :per_page => 10).order("follow_up DESC")
     @inflow_fu_count    = Inflow.where(follow_up: true).count
-
-
   end
 
-  # GET /inflows/1
+  def idordered
+    @page_title = "CF Inflows | Filter = Transaction ID"
+    @outflows = Inflow.all.paginate(page: params[:page], :per_page => 10).order("id DESC")
+    @outflow_fu_count = Inflow.where(follow_up: true).count
+    render action: :index
+  end
+
+    # GET /inflows/1
   # GET /inflows/1.json
   def show
     @id = @inflow.id

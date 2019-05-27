@@ -30,12 +30,20 @@
         </thead>
         <tbody>
         <tr>
-          <td><%= link_to "Cash Inflows", inflows_path %></td>
-          <td> <%= @inflows_desc %></td>
+          <td><%= link_to "Cash Inflows [Filter= Follow-up]", inflows_path %></td>
+          <td> <%= @inflows_f_followup %></td>
         </tr>
         <tr>
-          <td><%= link_to "Cash Outflows", outflows_path %></td>
-          <td><%= @outflows_desc %></td>
+          <td><%= link_to "Cash Inflows [Filster= Trans. Id]", inflows_idordered_path %></td>
+          <td> <%= @inflows_f_transaid %></td>
+        </tr>
+        <tr>
+          <td><%= link_to "Cash Outflows [Filter= Follow-up]", outflows_path %></td>
+          <td><%= @outflows_f_followup %></td>
+        </tr>
+        <tr>
+          <td><%= link_to "Cash Outflows [Filster= Trans. Id]", outflows_idordered_path %></td>
+          <td><%= @outflows_f_tansaid %></td>
         </tr>
 
         </tbody>

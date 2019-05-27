@@ -9,7 +9,7 @@
 
     <div class="row">
       <div class="col-sm-4">
-        <div class="control-group">
+        <div data-toggle= "tooltip"  data-placement="top" title="Select the account to post this transaction.">
           <div class ="controls">
             <%= f.association :outflowtype, collection: Outflowtype.order(:name),label_method: :name,
                               prompt: "Choose a Type", label:"Outflow_Type" %>
@@ -17,7 +17,7 @@
         </div>
         <br>
 
-        <div class="control-group">
+        <div data-toggle= "tooltip"  data-placement="top" title=" The name of the person responsible for the transaction.">
           <div class ="controls">
             <%= f.association :person, collection: Person.order(:fullname),label_method: :fullname,
                               prompt: "Choose an Owner", label:"Owner" %>
@@ -25,7 +25,7 @@
         </div>
         <br>
 
-        <div class="control-group">
+        <div data-toggle= "tooltip"  data-placement="top" title=" Select the bank account from which the transaction is made.">
           <div class ="controls">
             <%= f.association :bankaccount, collection: Bankaccount.order(:account_code),label_method: :account_code,
                               prompt: "Choose an account", label:"Bank Account" %>
@@ -33,7 +33,7 @@
         </div>
         <br>
 
-        <div class="control-group">
+        <div data-toggle= "tooltip"  data-placement="top" title=" Select the Cashflow this transaction belongs to.  This is usually pre-loaded.">
           <div class ="controls">
             <%= f.association :cashflow, collection: Cashflow.order(:name),label_method: :name,
                               prompt: "Choose an Cashflow", label:"Cash-Flow" %>
@@ -46,7 +46,9 @@
       <div class="col-sm-4">
         <%= f.input :year,:readonly => true %>
         <%= f.input :month ,:readonly => true%>
-        <%= f.input :rationale %>
+        <div data-toggle= "tooltip"  data-placement="top" title=" Explain the reason for this transaction">
+          <%= f.input :rationale %>
+        </div>
       </div>
       <div class="col-sm-4">
         <%= f.input :date_posted %>

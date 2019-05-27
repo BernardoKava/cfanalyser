@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
-
-  get 'outflows/idordered'
   get 'inflows/idordered'
+  get 'outflows/idordered'
+
   devise_for :users
   resources :inflowtypes
   resources :outflowtypes

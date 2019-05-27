@@ -11,8 +11,8 @@ class InflowsController < ApplicationController
 
   def idordered
     @page_title = "CF Inflows | Filter = Transaction ID"
-    @outflows = Inflow.all.paginate(page: params[:page], :per_page => 10).order("id DESC")
-    @outflow_fu_count = Inflow.where(follow_up: true).count
+    @inflows = Inflow.all.paginate(page: params[:page], :per_page => 10).order("id DESC")
+    @inflow_fu_count = Inflow.where(follow_up: true).count
     render action: :index
   end
 
